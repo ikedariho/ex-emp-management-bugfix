@@ -15,6 +15,7 @@ public class InsertAdministratorForm {
 	private String name;
 	/** メールアドレス */
 	@Email(message="Eメールの形式が不正です")
+	@NotBlank(message="メールは必須です")
 	private String mailAddress;
 	/** パスワード */
 	@NotBlank(message="パスワードは必須です")
