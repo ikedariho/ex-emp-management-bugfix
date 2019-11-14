@@ -1,5 +1,6 @@
 package jp.co.sample.emp_management.service;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,27 +17,34 @@ import jp.co.sample.emp_management.repository.AdministratorRepository;
 @Service
 @Transactional
 public class AdministratorService {
-	
+
 	@Autowired
 	private AdministratorRepository administratorRepository;
 
 	/**
 	 * 管理者情報を登録します.
 	 * 
-	 * @param administrator　管理者情報
+	 * @param administrator 管理者情報
 	 */
 	public void insert(Administrator administrator) {
 		administratorRepository.insert(administrator);
 	}
-	
+
 	/**
 	 * ログインをします.
+	 * 
 	 * @param mailAddress メールアドレス
-	 * @param password パスワード
-	 * @return 管理者情報　存在しない場合はnullが返ります
+	 * @param password    パスワード
+	 * @return 管理者情報 存在しない場合はnullが返ります
 	 */
 	public Administrator login(String mailAddress, String passward) {
 		Administrator administrator = administratorRepository.findByMailAddressAndPassward(mailAddress, passward);
 		return administrator;
+	}
+
+	public Administrator duplicate(String mailAddress) {
+		Administrator administratormail = administratorRepository.findByMailAddress(mailAddress);
+		return administratormail;
+
 	}
 }

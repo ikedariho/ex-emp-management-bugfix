@@ -1,4 +1,4 @@
-package jp.co.sample.emp_management.repository;
+	package jp.co.sample.emp_management.repository;
 
 import java.util.List;
 
