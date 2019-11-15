@@ -74,6 +74,10 @@ public class AdministratorController {
 		if (administratorService.duplicate(form.getMailAddress()) != null) {
 			result.rejectValue("mailAddress", null, "メールアドレスがもう既に登録しています");
 		}
+		if (!(form.getPassword().equals(form.getConfirmationPassword()))) {
+			result.rejectValue("confirmationPassword", null,"パスワードと確認用パスワードが違います");
+			
+		}
 		if (result.hasErrors()) {
 			return toInsert();
 		}

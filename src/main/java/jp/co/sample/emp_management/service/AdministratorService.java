@@ -43,8 +43,8 @@ public class AdministratorService {
 	}
 
 	public Administrator duplicate(String mailAddress) {
-		Administrator administratormail = administratorRepository.findByMailAddress(mailAddress);
-		return administratormail;
+		Administrator administrator = administratorRepository.findByMailAddress(mailAddress);
+		return administrator;
 
 	}
 }
